@@ -34,7 +34,7 @@ PodiumChange <- function(get, only.sig.iso=FALSE,  comparison=c("any","groups","
 #-------------------------------------------------------
   
   time.M <- tapply(edesign[,1],repvect,mean)
-  groups.M <- apply(edesign[,3:ncol(edesign)],2,function(x){tapply(x,repvect,mean)})
+  groups.M <- apply(edesign[,3:ncol(edesign),drop=FALSE],2,function(x){tapply(x,repvect,mean)})
   
   unic <- unique(gen.sig.iso2)
   Mayor=NULL
