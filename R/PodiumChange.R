@@ -45,6 +45,8 @@ PodiumChange <- function(get, only.sig.iso=FALSE,  comparison=c("any","groups","
     zz<-data.clust[gen.sig.iso2==unic[i],]
     M <- MayorIso(zz)
     zzM<-zz[M==1,]
+	# If more than one major isoform(!), arbitrarily pick first
+	if(nrow(zzM)>1) zzM <- zzM[1,]
     MzzM <- tapply(zzM,repvect,mean)
     zzm <- zz[M!=max(M),]
     
